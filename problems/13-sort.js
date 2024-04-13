@@ -20,19 +20,25 @@ sort([4,1,6,3,1,7]); // [1, 1, 3, 4, 6, 7]
 sort([0, 1, -3]); // [-3, 0, 1]
 sort([]); // []
 ***********************************************************************/
+function findSmallest(arr) {
+    let smallest = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        let curr = arr[i]
+        if (curr < smallest) {
+            smallest = curr
+        }
+    }
+    return smallest;
+}
 
-// function sort(nums, sorted = []) {
+function sort(nums, sorted = []) {
+    if (nums.length === 0) return sorted
 
-//     if (nums.length === 0) return sorted
-
-//     for (let i = 0; i < nums.length; i ++) {
-//         // let num = nums[i]
-//         if (nums[i+1] < nums[i]) {
-
-//         }
-//     }
-
-// }
+    let smallest = findSmallest(nums)
+    sorted.push(smallest)
+    nums.splice(nums.indexOf(smallest), 1)
+    return sort(nums, sorted)
+}
 
 function swap(arr, firstIndex, secondIndex) {
     let firstNum = arr[firstIndex];
