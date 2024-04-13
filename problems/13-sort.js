@@ -40,27 +40,27 @@ function sort(nums, sorted = []) {
     return sort(nums, sorted)
 }
 
-function swap(arr, firstIndex, secondIndex) {
-    let firstNum = arr[firstIndex];
-    arr[firstIndex] = arr[secondIndex];
-    arr[secondIndex] = firstNum;
-    return arr;
-}
+// function swap(arr, firstIndex, secondIndex) {
+//     let firstNum = arr[firstIndex];
+//     arr[firstIndex] = arr[secondIndex];
+//     arr[secondIndex] = firstNum;
+//     return arr;
+// }
 
-function sort(arr, index = 0) {
-    // base case:
-    if (index == arr.length) return arr;
-    // * necessary
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i + 1]) {
-            // We are setting our second index to our first index:
-            //   we are getting an array:
-            arr = swap(arr, i, i + 1);
-        }
-    }
-    // recursive case:
-    return sort(arr, index + 1);
-}
+// function sort(arr, index = 0) {
+//     // base case:
+//     if (index == arr.length) return arr;
+//     // * necessary
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] > arr[i + 1]) {
+//             // We are setting our second index to our first index:
+//             //   we are getting an array:
+//             arr = swap(arr, i, i + 1);
+//         }
+//     }
+//     // recursive case:
+//     return sort(arr, index + 1);
+// }
 
 debugger
 console.log(sort([4, 1, 6, 3, 1, 7])); // [1, 1, 3, 4, 6, 7]
