@@ -17,9 +17,30 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
 ***********************************************************************/
 
 const subsets = (arr) => {
-
-  arr.reduce((prev, curr) => prev.concat(prev.map(k => k.concat(curr))), [[]]);
+  let newarr = [[]];
+  for (let el of arr) {
+    let last = newarr.length - 1
+    for (let i = 0; i <= last; i++) {
+      newarr.push([...newarr[i], el])
+    }
+  }
+  return newarr
 }
+//   let allSubsets = []
+
+//   if (arr.length === 0) return [[]]
+
+//   for (let i = 0; i < (1 << arr.length); i++) {
+//     let subset = []
+//     for (let j = 0; j < arr.length; j++) {
+//       if ((1 << j) & i) {
+//         subset.push(arr[j])
+//       }
+//     }
+//     allSubsets.push(subset)
+//   }
+//   return allSubsets;
+// }
 
 console.log(subsets([])) // [[]]
 console.log(subsets([1])) // [[], [1]]
