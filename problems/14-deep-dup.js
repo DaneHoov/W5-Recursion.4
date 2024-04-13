@@ -44,7 +44,9 @@ function deepDup(arr) {
     // if (!deepDup(arr[i])) {
     //   return false;
     dupArr[i] = deepDup(arr[i])
+    // console.log(dupArr[i])
   }
+  console.log(dupArr)
   return dupArr
 }
 

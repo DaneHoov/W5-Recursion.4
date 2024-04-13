@@ -17,7 +17,8 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
 ***********************************************************************/
 
 const subsets = (arr) => {
-  // Your code here
+
+  arr.reduce((prev, curr) => prev.concat(prev.map(k => k.concat(curr))), [[]]);
 }
 
 console.log(subsets([])) // [[]]
