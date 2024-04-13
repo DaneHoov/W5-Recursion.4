@@ -35,10 +35,32 @@ console.log(x[0] === y[0]) // true
 
 
 function deepDup(arr) {
-  // Your code here 
+  let dupArr = [];
+
+  if (!Array.isArray(arr)) return arr
+
+  for (let i = 0; i < arr.length; i++) {
+    // dupArr.push(arr[i])
+    // if (!deepDup(arr[i])) {
+    //   return false;
+    dupArr[i] = deepDup(arr[i])
+  }
+  return dupArr
 }
 
 
+let arr = [[1], [2, [3]]];
+duped = deepDup(arr); // [[1], [2, [3]]]
+console.log(arr[0] === duped[0]) // false
+console.log(arr[1] === duped[1]) // false
+console.log(arr[1][1] === duped[1][1]) // false
+
+// Note:
+// if you compare a 1 dimensional array of numbers like below,
+// you will get 'true' because we are comparing numbers.
+// let x = [1, 2, 3];
+// let y = x.slice();
+// console.log(x[0] === y[0]) // true
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = deepDup;
