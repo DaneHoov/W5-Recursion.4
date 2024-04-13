@@ -54,12 +54,28 @@ permutations without storing them in an array. Then go back and refactor your
 solution so that it only calculates and compares all of the different
 combinations.
 ***********************************************************************/
+function greedyMakeChange(target, coins = [1, 5, 10, 25]) {
+  let ans = []
+  let n = coins.length
 
-function makeBetterChange(target, coins = [25, 10, 5, 1]) {
-  // Your code here 
+  for (let i = n - 1; i >= 0; i--) {
+    while (target >= coins[i]) {
+      target -= coins[i]
+      ans.push(coins[i])
+    }
+  }
+  console.log(ans)
 }
 
+function makeBetterChange(target, coins = [25, 10, 5, 1]) {
+  // Your code here
+}
 
+console.log(makeChange(21)); // [1, 10, 10]
+console.log(makeChange(75)); // [25, 25, 25]
+console.log(makeChange(33, [15, 3])); // [3, 15, 15]
+console.log(makeChange(34, [15, 3])); // null
+console.log(makeChange(24, [10, 7, 1])) // [7, 7, 10]
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = makeBetterChange
