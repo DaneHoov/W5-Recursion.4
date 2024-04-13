@@ -66,7 +66,11 @@ The call above should return the tree below:
 ***********************************************************************/
 
 const makeTree = (categories, parent) => {
-  // Your code here 
+    let tree = {}
+    categories
+        .filter(obj => obj.parent === parent)
+        .forEach(obj => tree[obj.id] = makeTree(categories, obj.id))
+    return tree
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
